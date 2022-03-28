@@ -128,7 +128,7 @@ input:focus {
 .num-display {
     position: absolute;
     top: -10px;
-    left: 0;
+    left: -10px;
 }
 
 .close,

@@ -30,15 +30,27 @@
 //
 // export default App;
 
-import React from "react";
-import Header from "./Components/Header/Header";
-import FeedbackItem from "./Components/FeedBackItem/FeedbackItem";
+import React, {useState} from "react";
+import Header from "./components/Header/Header";
+import FeedbackData from "./data/Feedback";
+import FeedBackList from "./components/FeedBackList/FeedBackList";
+import FeedBackStat from "./components/FeedBackStat/FeedBackStat";
+import FeedBackForm from "./FeedBackForm/FeedBackForm";
 
 const App = () => {
+    const [feedBack, setFeetBack] = useState(FeedbackData);
+    const deletedFeedBack = (id) => {
+        if (window.confirm('Are you sure want to delete ?'))
+        setFeetBack(feedBack.filter(el => el.id !== id))
+    }
     return (
         <>
             <Header />
-            <FeedbackItem/>
+            <div className="container">
+                <FeedBackForm />
+                <FeedBackStat feedBack={feedBack} />
+                <FeedBackList feedBack={feedBack} handleDelete = {deletedFeedBack} />
+            </div>
         </>
     )
 }
