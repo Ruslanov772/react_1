@@ -8,7 +8,7 @@ const Button = ({children, version, type, isDisabled }) => {
     > {children} </button>
 }
 
-Button.defaultPtops = {
+Button.defaultProps = {
     version: 'primary',
     type: 'button',
     isDisabled: false,
